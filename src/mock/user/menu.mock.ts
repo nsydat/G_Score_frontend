@@ -16,7 +16,7 @@ const mockMenuList: MenuList = [
     code: 'documentation',
     label: {
       zh_CN: '文档',
-      en_US: 'Documentation',
+      en_US: 'Tests',
     },
     icon: 'documentation',
     path: '/documentation',
