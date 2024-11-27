@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Table, Button, Card, notification } from "antd";
+import { Table, Button, Card  } from "antd";
 
 interface Student {
   id: number;
@@ -24,34 +24,16 @@ const StudentSearch: React.FC = () => {
   const [topLoading, setTopLoading] = useState<boolean>(false);
 
   const fetchStudent = () => {
-    if (!sbd) {
-      notification.error({
-        message: "Lỗi",
-        description: "Vui lòng nhập số báo danh.",
-      });
-      return; 
-    }
-
     setLoading(true);
     fetch(`https://localhost:44379/api/Student/${sbd}`)
       .then((res) => res.json())
       .then((result) => {
-        if (result === null || result.sbd === undefined) {
-          notification.error({
-            message: "Không tìm thấy sinh viên",
-            description: `Không tìm thấy sinh viên với số báo danh ${sbd}.`,
-          });
-        } else {
-          setData([result]);
-        }
+        setData([result]); 
         setLoading(false);
       })
       .catch((err) => {
         console.error(err);
-        notification.error({
-          message: "Lỗi khi tìm kiếm",
-          description: "Đã có lỗi xảy ra khi tìm kiếm sinh viên.",
-        });
+        setData([]);
         setLoading(false);
       });
   };
@@ -147,16 +129,12 @@ const StudentSearch: React.FC = () => {
           Tìm
         </Button>
 
-        <Button
-          type="primary"
-          onClick={fetchTopStudents}
-          loading={topLoading}
-          style={{ marginLeft: "8px" }}
-        >
+        <Button type="primary" onClick={fetchTopStudents} loading={topLoading}
+          style={{ marginLeft: "8px" }}>
           Top 10 Học Sinh Khối A
         </Button>
-      </div>
 
+      </div>
       <Table
         dataSource={data}
         columns={columns}
@@ -165,16 +143,16 @@ const StudentSearch: React.FC = () => {
         bordered
       />
 
-      {topStudents.length > 0 && (
-        <Card title="Top 10 Học Sinh Khối A">
-          <Table
-            dataSource={topStudents}
-            columns={columns}
-            rowKey={(record) => record.id.toString()}
-            bordered
-          />
-        </Card>
-      )}
+    {topStudents.length > 0 && (
+      <Card title="Top 10 Học Sinh Khối A">
+        <Table
+          dataSource={topStudents}
+          columns={columns}
+          rowKey={(record) => record.id.toString()}
+          bordered
+        />
+      </Card>
+    )}
     </div>
   );
 };
