@@ -13,7 +13,7 @@ import { setUserItem } from '@/stores/user.store';
 import { getFirstPathCode } from '@/utils/getFirstPathCode';
 import { getGlobalState } from '@/utils/getGloabal';
 
-import { useGuide } from '../guide/useGuide';
+import { useGuide } from '../search_score/useGuide';
 import HeaderComponent from './header';
 import MenuComponent from './menu';
 import TagsView from './tagView';

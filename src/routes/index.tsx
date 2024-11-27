@@ -12,8 +12,8 @@ import LoginPage from '@/pages/login';
 import WrapperRouteComponent from './config';
 
 const NotFound = lazy(() => import(/* webpackChunkName: "404'"*/ '@/pages/404'));
-const Documentation = lazy(() => import(/* webpackChunkName: "404'"*/ '@/pages/doucumentation'));
-const Guide = lazy(() => import(/* webpackChunkName: "guide'"*/ '@/pages/guide'));
+const Report = lazy(() => import(/* webpackChunkName: "404'"*/ '@/pages/report'));
+const SearchScore = lazy(() => import(/* webpackChunkName: "guide'"*/ '@/pages/search_score'));
 const RoutePermission = lazy(() => import(/* webpackChunkName: "route-permission"*/ '@/pages/permission/route'));
 const FormPage = lazy(() => import(/* webpackChunkName: "form'"*/ '@/pages/components/form'));
 const TablePage = lazy(() => import(/* webpackChunkName: "table'"*/ '@/pages/components/table'));
@@ -47,12 +47,12 @@ const routeList: RouteObject[] = [
         element: <WrapperRouteComponent element={<Dashboard />} titleId="title.dashboard" />,
       },
       {
-        path: 'documentation',
-        element: <WrapperRouteComponent element={<Documentation />} titleId="title.documentation" />,
+        path: 'report',
+        element: <WrapperRouteComponent element={<Report />} titleId="title.report" />,
       },
       {
-        path: 'guide',
-        element: <WrapperRouteComponent element={<Guide />} titleId="title.guide" />,
+        path: 'search_score',
+        element: <WrapperRouteComponent element={<SearchScore />} titleId="title.search_score" />,
       },
       {
         path: 'permission/route',

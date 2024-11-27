@@ -27,6 +27,7 @@
     "lint": "eslint . --ext js,ts,tsx",
     "format": "prettier --write **/*.{js,ts,tsx} && eslint . --ext js,ts,tsx --fix"
   },
+  
   "browserslist": {
     "production": [
       ">0.2%",
