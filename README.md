@@ -50,10 +50,6 @@ $ cd react-antd-admin
 # npm
 $ npm install
 $ npm start
-
-# yarn
-$ yarn install
-$ yarn start
 ```
 
 ## 🔨 Build
